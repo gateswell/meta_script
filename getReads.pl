@@ -1,6 +1,6 @@
 die "perl $0 <kraken report> <kraken table>" if(@ARGV != 2);
 #open IA,"/zfssz2/ST_STOMICS/P21Z10200N0096/LC_ST/qiaositan/Stereo_Meta/08.DataBase/k2_standard_20210517/taxid.name.txt";
-open IA,"/meta_script/taxid.name.txt" or die $!;	#modified at 2023-10-25 for image container
+open IA,"/meta_script/taxid.name.txt" or die "/meta_script/taxid.name.txt unexist!\n";	#modified at 2023-10-25 for image container
 while(<IA>){
 	chomp;
 	my @F=split /\t/;
