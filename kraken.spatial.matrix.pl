@@ -1,4 +1,4 @@
-die "perl $0 <kraken.umi.lst> <offset_x> <offset_y> <binsize>" if(@ARGV != 3);
+die "perl $0 <kraken.umi.lst> <offset_x> <offset_y> <binsize>" if(@ARGV != 4);
 
 my $offset_x = $ARGV[1];
 my $offset_y = $ARGV[2];
