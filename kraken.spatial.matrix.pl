@@ -4,7 +4,7 @@ my $offset_x = $ARGV[1];
 my $offset_y = $ARGV[2];
 my $binsize = $ARGV[3];
 
-open IP,"gzip -dc $ARGV[0]|";
+open IP,"gzip -dc $ARGV[0]|" or die $!;
 while(<IP>){
 	chomp;
 	my @F = split /\t/;
@@ -23,7 +23,7 @@ while(<IP>){
 	my $coor = "$x\t$y";
 	$count{$coor}{$genu}{$umi} = 1;
 }
-
+close IP;
 
 print "geneID\txcoord\tycoord\tMIDCount\n";
 
