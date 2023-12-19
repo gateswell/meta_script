@@ -9,8 +9,9 @@ while(<IA>){
 	$genus =~ s/g__//;
 	$genus{$taxid} = $genus;
 }
+close IA;
 
-open IB,"gzip -dc $ARGV[0]|";
+open IB,"gzip -dc $ARGV[0]|" or die "$ARGV[0] unexists\n";
 while(<IB>){
 	chomp;
 	my @F = split /\t/;
@@ -18,8 +19,9 @@ while(<IB>){
 	next if($F[6]==9605 || $F[6] == 9606);
 	$kraken{$F[6]}= 1;
 }
+close IB;
 
-open IC,"gzip -dc $ARGV[1]|";
+open IC,"gzip -dc $ARGV[1]|" or die "$ARGV[1] unexists\n";
 while(<IC>){
 	chomp;
 	my @F=split /\t/;
@@ -27,3 +29,4 @@ while(<IC>){
 	next unless (exists $kraken{$taxid});
 	print "$F[1]\t$taxid\t$genus{$taxid}\n";
 }
+close IC;
